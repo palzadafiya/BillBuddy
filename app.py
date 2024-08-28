@@ -211,7 +211,6 @@ def summary():
             sum+=bills[name]
         expenses[user] = sum
         total+=sum
-
     levana = {}
     devana = {}
     for user in expenses:
@@ -223,6 +222,11 @@ def summary():
 
     levana = dict(sorted(levana.items(), key=lambda item: item[1], reverse=True))
     devana = dict(sorted(devana.items(), key=lambda item: item[1], reverse=True))
+
+    for user in levana:
+        levana[user] = round(levana[user], 2)
+    for user in devana:
+        devana[user] = round(devana[user], 2)
 
     transactions = []
 
